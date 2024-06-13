@@ -1,0 +1,326 @@
+URL to view log online:
+https://source.eait.uq.edu.au/viewvc/csse2310-sem1-s4801283/trunk/a3/?view=log
+
+Retrieving logs at Fri May 3 08:43:30 AEST 2024
+------------------------------------------------------------------------
+r1 | uqpsutto | 2024-02-21 19:54:56 +1000 (Wed, 21 Feb 2024) | 1 line
+Changed paths:
+   A /play
+   A /prac
+   A /trunk
+   A /trunk/a1
+   A /trunk/a3
+   A /trunk/a4
+
+Initial repository structure
+
+
+------------------------------------------------------------------------
+r27 | s4801283 | 2024-04-13 12:47:35 +1000 (Sat, 13 Apr 2024) | 2 lines
+Changed paths:
+   A /trunk/a3/makefile
+   A /trunk/a3/uqfindexec.c
+
+I created a makefile with a flags for the provided library and also the c file
+
+
+Index: makefile
+ makefile |    9 +++++++++
+ 1 file changed, 9 insertions(+)
+Index: uqfindexec.c
+ uqfindexec.c |    6 ++++++
+ 1 file changed, 6 insertions(+)
+
+------------------------------------------------------------------------
+r28 | s4801283 | 2024-04-13 19:29:48 +1000 (Sat, 13 Apr 2024) | 2 lines
+Changed paths:
+   M /trunk/a3/uqfindexec.c
+
+Added functionality to assign the values of passed in parameters to variables
+
+
+Index: uqfindexec.c
+ uqfindexec.c |  100 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 98 insertions(+), 2 deletions(-)
+
+------------------------------------------------------------------------
+r29 | s4801283 | 2024-04-14 20:28:44 +1000 (Sun, 14 Apr 2024) | 2 lines
+Changed paths:
+   M /trunk/a3/makefile
+   M /trunk/a3/uqfindexec.c
+
+Added functionality to check if a directory can be opened and check if the provided command is a valid.
+
+
+Index: makefile
+ makefile |    4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+Index: uqfindexec.c
+ uqfindexec.c |   59 ++++++++++++++++++++++++++++++++++++++++++++++++++---------
+ 1 file changed, 50 insertions(+), 9 deletions(-)
+
+------------------------------------------------------------------------
+r30 | s4801283 | 2024-04-16 15:56:19 +1000 (Tue, 16 Apr 2024) | 2 lines
+Changed paths:
+   M /trunk/a3/uqfindexec.c
+
+Added functionality for suggested approach 3 (iterate over files in directory and print their names). Also ensured that the command argument is checked to be the last in the argument array
+
+
+Index: uqfindexec.c
+ uqfindexec.c |   38 ++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 36 insertions(+), 2 deletions(-)
+
+------------------------------------------------------------------------
+r31 | s4801283 | 2024-04-17 22:23:18 +1000 (Wed, 17 Apr 2024) | 2 lines
+Changed paths:
+   M /trunk/a3/uqfindexec.c
+
+Changed dictionary iteration to execute echo command and ensures that only regular files and symbolic links to regular files are processed
+
+
+Index: uqfindexec.c
+ uqfindexec.c |   90 +++++++++++++++++++++++++++++++++++++++++++----------------
+ 1 file changed, 67 insertions(+), 23 deletions(-)
+
+------------------------------------------------------------------------
+r32 | s4801283 | 2024-04-18 15:30:51 +1000 (Thu, 18 Apr 2024) | 2 lines
+Changed paths:
+   M /trunk/a3/uqfindexec.c
+
+Added functionality to handle commands with arguments and implemented the placeholder substitution
+
+
+Index: uqfindexec.c
+ uqfindexec.c |   83 +++++++++++++++++++++++++++++++++++++++--------------------
+ 1 file changed, 55 insertions(+), 28 deletions(-)
+
+------------------------------------------------------------------------
+r33 | s4801283 | 2024-04-18 19:30:44 +1000 (Thu, 18 Apr 2024) | 2 lines
+Changed paths:
+   M /trunk/a3/uqfindexec.c
+
+The program now has added support for stdin and stdout redirection and will inherit parent's standard input/output if these are not specified
+
+
+Index: uqfindexec.c
+ uqfindexec.c |   98 ++++++++++++++++++++++++++++++++++++++++++++++++-----------
+ 1 file changed, 80 insertions(+), 18 deletions(-)
+
+------------------------------------------------------------------------
+r34 | s4801283 | 2024-04-18 20:13:34 +1000 (Thu, 18 Apr 2024) | 2 lines
+Changed paths:
+   M /trunk/a3/uqfindexec.c
+
+Resolved a segmentation fault when an invalid command was entered. Also incorporated provided library function free_pipeline to resolve memory leaks
+
+
+Index: uqfindexec.c
+ uqfindexec.c |   34 +++++++++++++---------------------
+ 1 file changed, 13 insertions(+), 21 deletions(-)
+
+------------------------------------------------------------------------
+r35 | s4801283 | 2024-04-21 10:45:52 +1000 (Sun, 21 Apr 2024) | 2 lines
+Changed paths:
+   M /trunk/a3/uqfindexec.c
+
+Ensured that if --dir option is specified, the path to the file is substituted along with the filename
+
+
+Index: uqfindexec.c
+ uqfindexec.c |   26 ++++++++++++++++++++------
+ 1 file changed, 20 insertions(+), 6 deletions(-)
+
+------------------------------------------------------------------------
+r36 | s4801283 | 2024-04-21 18:52:55 +1000 (Sun, 21 Apr 2024) | 2 lines
+Changed paths:
+   M /trunk/a3/uqfindexec.c
+
+The parallel method has been implemented so now all commands are executed before any child processes are reaped.
+
+
+Index: uqfindexec.c
+ uqfindexec.c |   47 ++++++++++++++++++++++++++++++++++++++---------
+ 1 file changed, 38 insertions(+), 9 deletions(-)
+
+------------------------------------------------------------------------
+r37 | s4801283 | 2024-04-22 12:14:26 +1000 (Mon, 22 Apr 2024) | 2 lines
+Changed paths:
+   M /trunk/a3/uqfindexec.c
+
+The interrupt signal handling has been implemented so any running processes are finished and reaped in sequential mode without continuing to the next file.
+
+
+Index: uqfindexec.c
+ uqfindexec.c |  142 +++++++++++++++++++++++++++++++++++++++--------------------
+ 1 file changed, 94 insertions(+), 48 deletions(-)
+
+------------------------------------------------------------------------
+r38 | s4801283 | 2024-04-23 14:56:53 +1000 (Tue, 23 Apr 2024) | 2 lines
+Changed paths:
+   M /trunk/a3/uqfindexec.c
+
+The report functionality has been implemented to display output statistics regarding the processing and execution of files based on whether the --report argument is specified
+
+
+Index: uqfindexec.c
+ uqfindexec.c |  103 +++++++++++++++++++++++++++++++++++++++++++++++++++--------
+ 1 file changed, 90 insertions(+), 13 deletions(-)
+
+------------------------------------------------------------------------
+r39 | s4801283 | 2024-04-24 16:18:19 +1000 (Wed, 24 Apr 2024) | 2 lines
+Changed paths:
+   M /trunk/a3/uqfindexec.c
+
+Fixed program in response to test results for invalid command line arguments
+
+
+Index: uqfindexec.c
+ uqfindexec.c |   92 +++++++++++++++++++++++++++++++++++++++++------------------
+ 1 file changed, 65 insertions(+), 27 deletions(-)
+
+------------------------------------------------------------------------
+r40 | s4801283 | 2024-04-24 17:10:53 +1000 (Wed, 24 Apr 2024) | 2 lines
+Changed paths:
+   M /trunk/a3/uqfindexec.c
+
+Passed tests for hidden files section so now the program correctly processes and outputs commands related to hidden files
+
+
+Index: uqfindexec.c
+ uqfindexec.c |   43 +++++++++++++++++++++++++------------------
+ 1 file changed, 25 insertions(+), 18 deletions(-)
+
+------------------------------------------------------------------------
+r41 | s4801283 | 2024-04-24 17:27:18 +1000 (Wed, 24 Apr 2024) | 2 lines
+Changed paths:
+   M /trunk/a3/uqfindexec.c
+
+Refactored the file generation method to reduce the complexity of the execute_cmd method
+
+
+Index: uqfindexec.c
+ uqfindexec.c |   33 +++++++++++++++------------------
+ 1 file changed, 15 insertions(+), 18 deletions(-)
+
+------------------------------------------------------------------------
+r42 | s4801283 | 2024-04-26 03:33:24 +1000 (Fri, 26 Apr 2024) | 2 lines
+Changed paths:
+   M /trunk/a3/uqfindexec.c
+
+Refactored the pipelining process to try and resolve the input redirection from a placeholder file problem but no sucess. However, began and passed tests for generating output statistics in an empty directory and directories only containing files
+
+
+Index: uqfindexec.c
+ uqfindexec.c |  159 +++++++++++++++++++++++++++++++----------------------------
+ 1 file changed, 85 insertions(+), 74 deletions(-)
+
+------------------------------------------------------------------------
+r43 | s4801283 | 2024-04-26 11:55:17 +1000 (Fri, 26 Apr 2024) | 2 lines
+Changed paths:
+   M /trunk/a3/uqfindexec.c
+
+Did further testing and debugging for generating statistics parrticularly in relation to handling normal signals versus interrupt signals as per the spec
+
+
+Index: uqfindexec.c
+ uqfindexec.c |   64 ++++++++++++++++++++++++++++++++++++-----------------------
+ 1 file changed, 40 insertions(+), 24 deletions(-)
+
+------------------------------------------------------------------------
+r44 | s4801283 | 2024-04-27 19:15:17 +1000 (Sat, 27 Apr 2024) | 2 lines
+Changed paths:
+   M /trunk/a3/uqfindexec.c
+
+The program is now correctly generating output statistics for the provided tests which was resolved by ensuring all commands in the pipeline are reaped after every one has started
+
+
+Index: uqfindexec.c
+ uqfindexec.c |   81 ++++++++++++++++++++++++++++++++++++-----------------------
+ 1 file changed, 50 insertions(+), 31 deletions(-)
+
+------------------------------------------------------------------------
+r45 | s4801283 | 2024-04-29 22:31:48 +1000 (Mon, 29 Apr 2024) | 2 lines
+Changed paths:
+   M /trunk/a3/uqfindexec.c
+
+Successfully incorporated pipeline exection so now the program correctly creates pipes between child processes
+
+
+Index: uqfindexec.c
+ uqfindexec.c |  177 ++++++++++++++++++++++++++++++++++-------------------------
+ 1 file changed, 104 insertions(+), 73 deletions(-)
+
+------------------------------------------------------------------------
+r46 | s4801283 | 2024-04-30 14:38:25 +1000 (Tue, 30 Apr 2024) | 2 lines
+Changed paths:
+   M /trunk/a3/uqfindexec.c
+
+All pipeline tests are now passing by correctly checking before forking whether there was an IO error for any specified input/output redirection files
+
+
+Index: uqfindexec.c
+ uqfindexec.c |  166 +++++++++++++++++++++++++++++++----------------------------
+ 1 file changed, 90 insertions(+), 76 deletions(-)
+
+------------------------------------------------------------------------
+r47 | s4801283 | 2024-04-30 20:25:53 +1000 (Tue, 30 Apr 2024) | 2 lines
+Changed paths:
+   M /trunk/a3/uqfindexec.c
+
+Generated docstrings for methods and added comments to document and explain the logic of the code
+
+
+Index: uqfindexec.c
+ uqfindexec.c |  111 +++++++++++++++++++++++++++++++++++++++++++++++------------
+ 1 file changed, 90 insertions(+), 21 deletions(-)
+
+------------------------------------------------------------------------
+r48 | s4801283 | 2024-04-30 22:41:52 +1000 (Tue, 30 Apr 2024) | 2 lines
+Changed paths:
+   M /trunk/a3/uqfindexec.c
+
+Extended the substitution processing so that arguments like {}.out is also substituted with the filename and not just {}. Also finalised documentation and comments.
+
+
+Index: uqfindexec.c
+ uqfindexec.c |   78 ++++++++++++++++++++++++++++++++++++++++++++++-------------
+ 1 file changed, 62 insertions(+), 16 deletions(-)
+
+------------------------------------------------------------------------
+r49 | s4801283 | 2024-04-30 23:07:27 +1000 (Tue, 30 Apr 2024) | 2 lines
+Changed paths:
+   M /trunk/a3/uqfindexec.c
+
+Fixed my global variable declaration so it is a bool and not sig_atomic_t
+
+
+Index: uqfindexec.c
+ uqfindexec.c |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+------------------------------------------------------------------------
+r50 | s4801283 | 2024-05-03 08:42:09 +1000 (Fri, 03 May 2024) | 2 lines
+Changed paths:
+   M /trunk/a3/uqfindexec.c
+
+Changed flags in signal handler to correctly restart system calls after being interrupted by a signal. Also included additional comments and fixed some typos in the docstrings.
+
+
+Index: uqfindexec.c
+ uqfindexec.c |   19 ++++++++++++++-----
+ 1 file changed, 14 insertions(+), 5 deletions(-)
+
+------------------------------------------------------------------------
+r51 | s4801283 | 2024-05-03 08:43:06 +1000 (Fri, 03 May 2024) | 2 lines
+Changed paths:
+   M /trunk/a3/uqfindexec.c
+
+Ran through the style check guide to fix some formatting issues.
+
+
+Index: uqfindexec.c
+ uqfindexec.c |    4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+------------------------------------------------------------------------
